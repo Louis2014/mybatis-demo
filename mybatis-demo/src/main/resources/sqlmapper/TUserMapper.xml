@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "file:/Users/chenxi/Documents/idea_workspace/mybatis/src/main/java/org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybatis.cx.mapper.TUserMapper">
+  <cache/>
+	<select id="selectAll" resultType="TUser">
+		select
+		CUST_NO,PHONE_NUM
+		from pg_user_info
+	</select>
+  <select id="getOne"  resultType="TUser" >
+		select
+		CUST_NO,PHONE_NUM
+		from pg_user_info
+		where CUST_NO=#{custNo}
+	</select>
+</mapper>

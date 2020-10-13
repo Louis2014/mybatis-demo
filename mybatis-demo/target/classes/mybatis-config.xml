@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "file:/Users/chenxi/Documents/idea_workspace/mybatis/src/main/java/org/apache/ibatis/builder/xml/mybatis-3-config.dtd">
+
+<!-- XML 配置文件包含对 MyBatis 系统的核心设置 -->
+<configuration>
+
+    <!-- 指定 MyBatis 数据库配置文件 -->
+    <properties resource="db.properties" />
+
+    <settings>
+        <!-- 设置自动驼峰转换 -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+<typeAliases>
+    <package name="com.mybatis.cx.entity"/>
+</typeAliases>
+
+    <environments default="mysql">
+
+        <!-- 环境配置，即连接的数据库。 -->
+        <environment id="mysql">
+
+            <!-- 指定事务管理类型，type="JDBC"指直接简单使用了JDBC的提交和回滚设置 -->
+            <transactionManager type="JDBC" />
+
+            <!-- dataSource指数据源配置，POOLED是JDBC连接对象的数据源连接池的实现。 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="sqlmapper/TUserMapper.xml" />
+    </mappers>
+
+
+</configuration>
